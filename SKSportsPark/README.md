@@ -9,7 +9,7 @@ check the availability of the turf, select timings, and view booking history.
 
 ## Demo Video:
 
-[](https://user-images.githubusercontent.com/56031116/152095179-09578948-ea65-4d6e-8377-d955e9d71715.mp4)
+[](https://user-images.githubusercontent.com/56031116/video.mp4)
 
 
 
