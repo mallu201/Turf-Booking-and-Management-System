@@ -9,7 +9,7 @@ check the availability of the turf, select timings, and view booking history.
 
 ## Demo Video:
 
-[](https://user-images.githubusercontent.com/video.mp4)
+[Click here to watch the demo video](https://github.com/mallu201/Turf-Booking-and-Management-System/raw/main/video.mp4)
 
 
 
