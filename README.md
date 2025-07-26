@@ -3,7 +3,7 @@ The application provides a seamless interface for users to view turf availabilit
 
 
 
-# Turf Booking and Management System
+
 
 ## Problem Statement:
 With less availability of Open Grounds, turfs has emerged as a new way for
