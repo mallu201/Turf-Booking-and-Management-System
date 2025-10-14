@@ -1,1 +1,1 @@
-web: gunicorn SKSportsPark.wsgi  --log-file -
+web: gunicorn SKSportsPark.wsgi
