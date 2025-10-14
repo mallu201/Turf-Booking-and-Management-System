@@ -1,1 +1,1 @@
-web: gunicorn SKSportsPark.wsgi
+web: gunicorn TheSKSportsPark.wsgi
