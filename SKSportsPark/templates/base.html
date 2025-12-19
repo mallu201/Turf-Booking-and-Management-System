@@ -25,6 +25,31 @@
             .alert.fade-out {
                 opacity: 0;
             }
+
+		.alert.fade-out {
+        opacity: 0;
+    } 
+    /* PASTE YOUR NEW CODE HERE */
+    @media (max-width: 768px) {
+        h1 { font-size: 32px !important; }
+        p { font-size: 16px !important; padding: 0 15px; }
+        .btn { width: 100%; margin-bottom: 10px; }
+    }
+</style> ```
+
+---
+
+### **Option 2: The "Touching Edges" Fix (In `mainpage_index.html`)**
+The code above fixes the **Text Size**. To fix the text touching the edges of the phone screen, you need to open a different file.
+
+1.  In your file list (left side of your photo), click on **`mainpage_index.html`**.
+2.  Look for the line that says:
+    `<div class="container-fluid">`
+3.  **Change it to:**
+    `<div class="container">`
+
+**Do these two things, and your mobile view will be fixed!**
+			
         </style>
     </head>
     <body>
