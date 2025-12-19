@@ -176,4 +176,4 @@ DEFAULT_FROM_EMAIL = 'The SK Sports Park <mallutelabakkanavar045@gmail.com>'
 SERVER_EMAIL = EMAIL_HOST_USER
 
 # Enable email sending
-ENABLE_EMAIL = True
+ENABLE_EMAIL = False     # I Change this "True" To "False" .....................
