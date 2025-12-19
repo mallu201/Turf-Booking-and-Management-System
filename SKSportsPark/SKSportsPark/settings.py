@@ -163,7 +163,7 @@ RAZOR_KEY_ID = ''
 RAZOR_KEY_SECRET = ''
 
 # Offline Mode Settings
-OFFLINE_MODE = False  # Set to False to enable online features
+OFFLINE_MODE = True  # Set to False to enable online features   # i set the False to Ture Here ...................
 
 # Email settings - Enabled for sending actual emails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
