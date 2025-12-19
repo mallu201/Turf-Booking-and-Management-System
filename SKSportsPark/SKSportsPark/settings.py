@@ -76,25 +76,36 @@ WSGI_APPLICATION = 'SKSportsPark.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-      'default': {
-          'ENGINE': 'django.db.backends.mysql',
-          'NAME': 'sk_turf33',
-          'USER': 'root',
-          'PASSWORD': 'Admin@123',
-          'HOST': 'localhost',
-          'PORT': '3306',
+#DATABASES = {
+      # 'default': {
+          # 'ENGINE': 'django.db.backends.mysql',
+          # 'NAME': 'sk_turf33',
+          # 'USER': 'root',
+          # 'PASSWORD': 'Admin@123',
+          # 'HOST': 'localhost',
+          # 'PORT': '3306',
     
-     }
- }
+     # }
+ # }
 
  #Use SQLite for now (easier for deployment)
-# DATABASES = {
-     # 'default': {
-         # 'ENGINE': 'django.db.backends.sqlite3',
-         # 'NAME': BASE_DIR / 'db.sqlite3',
-     # }
-# }
+#DATABASES = {
+      # 'default': {
+          # 'ENGINE': 'django.db.backends.sqlite3',
+          # 'NAME': BASE_DIR / 'db.sqlite3',
+      }
+ # }
+
+
+# REPLACE your old DATABASES = { ... } block with this:
+
+DATABASES = {
+    'default': dj_database_url.config(
+        # On Localhost (Laptop), use SQLite:
+        default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'),
+        conn_max_age=600
+    )
+}
 
 # Uncomment this for production with external database
 #db_from_env = dj_database_url.config(conn_max_age=600)
