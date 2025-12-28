@@ -6,7 +6,7 @@ The application provides a seamless interface for users to view turf availabilit
 
 
 ## Problem Statement:
-With less availability of Open Grounds, turfs has emerged as a new way for
+With less availability of Open Grounds, turf has emerged as a new way for
 everyone to get around and play together at reasonable rates. As booking turf is
 an ordeal for people to locate, fetch details according to their requirements, it
 has become a necessity to have a solution to book turf on the go. Users can
