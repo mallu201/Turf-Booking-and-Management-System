@@ -9,9 +9,9 @@ import dj_database_url
 from dotenv import load_dotenv
 
 
-# --------------------------------------------------
+# ==================================================
 # BASE DIRECTORY
-# --------------------------------------------------
+# ==================================================
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,34 +20,55 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
 
 
-# --------------------------------------------------
+# ==================================================
 # SECURITY
-# --------------------------------------------------
+# ==================================================
 
 SECRET_KEY = os.environ.get(
     "SECRET_KEY",
-    "django-insecure-local-development-key-change-before-production"
+    "django-insecure-local-development-key-change-before-production",
 )
 
-
-# False for production preparation
+# False for production
 DEBUG = False
 
 
-# Allowed hosts
-# Add your Render/deployment domain later.
+# ==================================================
+# ALLOWED HOSTS
+# ==================================================
+
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
+    "turf-booking-and-management-system-10.onrender.com",
 ]
 
 
-# --------------------------------------------------
+# ==================================================
+# CSRF TRUSTED ORIGINS
+# Required for Django POST requests on Render
+# ==================================================
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://turf-booking-and-management-system-10.onrender.com",
+]
+
+
+# ==================================================
+# SECURITY SETTINGS FOR RENDER
+# ==================================================
+
+# Render uses HTTPS and forwards requests through a proxy
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+
+# ==================================================
 # APPLICATION DEFINITION
-# --------------------------------------------------
+# ==================================================
 
 INSTALLED_APPS = [
     "turf",
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -57,9 +78,9 @@ INSTALLED_APPS = [
 ]
 
 
-# --------------------------------------------------
+# ==================================================
 # MIDDLEWARE
-# --------------------------------------------------
+# ==================================================
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -76,23 +97,23 @@ MIDDLEWARE = [
 ]
 
 
-# --------------------------------------------------
+# ==================================================
 # URL CONFIGURATION
-# --------------------------------------------------
+# ==================================================
 
 ROOT_URLCONF = "SKSportsPark.urls"
 
 
-# --------------------------------------------------
+# ==================================================
 # TEMPLATES
-# --------------------------------------------------
+# ==================================================
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
 
         "DIRS": [
-            os.path.join(BASE_DIR, "templates"),
+            BASE_DIR / "templates",
         ],
 
         "APP_DIRS": True,
@@ -109,16 +130,16 @@ TEMPLATES = [
 ]
 
 
-# --------------------------------------------------
+# ==================================================
 # WSGI
-# --------------------------------------------------
+# ==================================================
 
 WSGI_APPLICATION = "SKSportsPark.wsgi.application"
 
 
-# --------------------------------------------------
+# ==================================================
 # DATABASE
-# --------------------------------------------------
+# ==================================================
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
@@ -140,9 +161,9 @@ else:
     }
 
 
-# --------------------------------------------------
+# ==================================================
 # PASSWORD VALIDATION
-# --------------------------------------------------
+# ==================================================
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -172,9 +193,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# --------------------------------------------------
+# ==================================================
 # INTERNATIONALIZATION
-# --------------------------------------------------
+# ==================================================
 
 LANGUAGE_CODE = "en-us"
 
@@ -185,70 +206,71 @@ USE_I18N = True
 USE_TZ = True
 
 
-# --------------------------------------------------
+# ==================================================
 # STATIC FILES
-# --------------------------------------------------
+# ==================================================
 
 STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    BASE_DIR / "static",
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
-# Django 6 + WhiteNoise configuration
+# WhiteNoise configuration
 STORAGES = {
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+        "BACKEND": (
+            "whitenoise.storage.CompressedManifestStaticFilesStorage"
+        ),
     },
 }
 
 
-# --------------------------------------------------
+# ==================================================
 # MEDIA FILES
-# --------------------------------------------------
+# ==================================================
 
 MEDIA_URL = "/media/"
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = BASE_DIR / "media"
 
 
-# --------------------------------------------------
+# ==================================================
 # DEFAULT PRIMARY KEY
-# --------------------------------------------------
+# ==================================================
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-# --------------------------------------------------
+# ==================================================
 # URL SETTINGS
-# --------------------------------------------------
+# ==================================================
 
 APPEND_SLASH = True
 
 
-# --------------------------------------------------
+# ==================================================
 # RAZORPAY SETTINGS
-# --------------------------------------------------
+# ==================================================
 
-# Your project currently uses dummy/offline payment
 RAZOR_KEY_ID = os.environ.get("RAZOR_KEY_ID", "")
 
 RAZOR_KEY_SECRET = os.environ.get("RAZOR_KEY_SECRET", "")
 
 
-# --------------------------------------------------
+# ==================================================
 # OFFLINE / DUMMY PAYMENT SETTINGS
-# --------------------------------------------------
+# ==================================================
 
 OFFLINE_MODE = False
 
 
-# --------------------------------------------------
+# ==================================================
 # EMAIL SETTINGS
-# --------------------------------------------------
+# ==================================================
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
