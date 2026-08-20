@@ -26,9 +26,8 @@ load_dotenv(BASE_DIR / ".env")
 
 SECRET_KEY = os.environ.get(
     "SECRET_KEY",
-    "django-insecure-local-development-key-change-before-production"
+    "django-insecure-local-development-key-change-before-production",
 )
-
 
 # False for production
 DEBUG = False
@@ -41,7 +40,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "turf-booking-and-management-system-9.onrender.com",
+    "turf-booking-and-management-system-10.onrender.com",
 ]
 
 
@@ -51,8 +50,16 @@ ALLOWED_HOSTS = [
 # ==================================================
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://turf-booking-and-management-system-9.onrender.com",
+    "https://turf-booking-and-management-system-10.onrender.com",
 ]
+
+
+# ==================================================
+# SECURITY SETTINGS FOR RENDER
+# ==================================================
+
+# Render uses HTTPS and forwards requests through a proxy
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
 # ==================================================
@@ -106,7 +113,7 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
 
         "DIRS": [
-            os.path.join(BASE_DIR, "templates"),
+            BASE_DIR / "templates",
         ],
 
         "APP_DIRS": True,
@@ -249,7 +256,6 @@ APPEND_SLASH = True
 # RAZORPAY SETTINGS
 # ==================================================
 
-# Your project currently uses dummy/offline payment
 RAZOR_KEY_ID = os.environ.get("RAZOR_KEY_ID", "")
 
 RAZOR_KEY_SECRET = os.environ.get("RAZOR_KEY_SECRET", "")
